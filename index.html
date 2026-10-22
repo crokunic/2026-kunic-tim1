@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mladi Adamić i uspon trgovačke kuće</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f4efe4;
+            color: #2d241c;
+            line-height: 1.7;
+        }
+
+        header {
+            min-height: 90vh;
+            background:
+                linear-gradient(rgba(35, 25, 17, 0.78), rgba(35, 25, 17, 0.78)),
+                url("https://commons.wikimedia.org/wiki/Special:FilePath/Andrija%20Ljudevit%20Adamic.jpg")
+                center / cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            max-width: 900px;
+        }
+
+        .hero p:first-child {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #e7c47a;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #241a13;
+            text-align: center;
+            padding: 14px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #e7c47a;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            color: #654321;
+            margin-bottom: 25px;
+            border-left: 6px solid #b4873c;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #765126;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        .intro {
+            font-size: 1.15rem;
+        }
+
+        .quote {
+            background: #e6d7bb;
+            border-left: 5px solid #9a702e;
+            padding: 25px;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.15rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid #b4873c;
+        }
+
+        .card .year {
+            font-size: 2rem;
+            color: #9a702e;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        figure {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        figure img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        figcaption {
+            padding: 12px 5px;
+            font-size: 0.9rem;
+            color: #5d5145;
+        }
+
+        .video-box {
+            background: #241a13;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .video-box h2 {
+            color: #e7c47a;
+            border-color: #e7c47a;
+            text-align: left;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            aspect-ratio: 16 / 9;
+            margin: 30px auto 0;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        .placeholder {
+            background: #4a392b;
+            padding: 70px 20px;
+            border-radius: 8px;
+            color: #ddd;
+        }
+
+        .sources {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .sources ul {
+            padding-left: 25px;
+        }
+
+        .sources li {
+            margin-bottom: 12px;
+        }
+
+        .sources a {
+            color: #765126;
+        }
+
+        footer {
+            background: #241a13;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer strong {
+            color: #e7c47a;
+        }
+
+        @media (max-width: 800px) {
+            .cards,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+                font-size: 0.9rem;
+            }
+
+            figure img {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header id="pocetak">
+    <div class="hero">
+        <p>Adamićevo doba • 1780.–1830.</p>
+
+        <h1>Mladi Adamić i uspon trgovačke kuće</h1>
+
+        <p class="hero-text">
+            Priča o Andriji Ljudevitu Adamiću, riječkom trgovcu,
+            poduzetniku i vizionaru koji je trgovinu pretvorio u
+            sredstvo razvoja Rijeke.
+        </p>
+    </div>
+</header>
+
+<nav>
+    <a href="#mladost">Mladost</a>
+    <a href="#trgovina">Trgovačka kuća</a>
+    <a href="#ratovi">Napoleonski ratovi</a>
+    <a href="#galerija">Galerija</a>
+    <a href="#video">AI intervju</a>
+    <a href="#izvori">Izvori</a>
+</nav>
+
+<main>
+
+    <section id="mladost">
+        <h2>1. Mladi Adamić</h2>
+
+        <p class="intro">
+            Andrija Ljudevit Adamić rođen je u Rijeci 29. studenoga 1767.
+            u trgovačkoj obitelji Šimuna i Elizabete Adamić.
+            Njegov otac Šimun bio je uspješan trgovac duhanom i veleposjednik.
+        </p>
+
+        <p>
+            Još u mladosti Andrija je pokazao izrazitu poduzetnost.
+            Prema Hrvatskom biografskom leksikonu, kao dvadesetogodišnjak
+            otišao je u Beč kako bi kod cara Josipa II. pokušao obraniti
+            svoje roditelje od optužbi. U tome je uspio, a iskustvo boravka
+            u Beču kasnije mu je koristilo u stvaranju trgovačkih veza.
+        </p>
+
+        <p>
+            U Beču je, prema očevoj želji, učio trgovinu i stekao znanja
+            koja će kasnije primijeniti u Rijeci. Njegov život pokazuje kako
+            su se obrazovanje, veze i poduzetnost mogli pretvoriti u
+            veliku poslovnu prednost.
+        </p>
+
+        <div class="quote">
+            „Adamić nije bio samo trgovac. Bio je čovjek koji je trgovinu
+            povezivao s razvojem grada, prometa i industrije.“
+        </div>
+    </section>
+
+
+    <section id="trgovina">
+        <h2>2. Uspon trgovačke kuće</h2>
+
+        <p>
+            Godine 1786. Andrija Ljudevit Adamić zajedno je s ocem Šimunom
+            osnovao trgovačko poduzeće
+            <strong>Simone Adamich e Figlio</strong>.
+            Poduzeće je u početku trgovalo prvenstveno duhanom, ali se
+            poslovanje brzo proširilo na različite vrste robe.
+        </p>
+
+        <p>
+            Trgovačka kuća raspolagala je brodovima, skladištima i
+            poslovnicom u Bakru. Roba se prevozila prema različitim
+            sredozemnim i crnomorskim lukama, čime je riječko poduzeće
+            postalo dio mnogo šire europske trgovačke mreže.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="year">1786.</div>
+                <h3>Početak poduzeća</h3>
+                <p>
+                    Andrija i njegov otac Šimun osnivaju trgovačko
+                    poduzeće Simone Adamich e Figlio.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="year">1799.</div>
+                <h3>Povratak u Rijeku</h3>
+                <p>
+                    Nakon putovanja i boravka u inozemstvu Adamić se
+                    vraća u Rijeku i nastavlja razvijati svoje poslovanje.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="year">1800.–1815.</div>
+                <h3>Ratno doba</h3>
+                <p>
+                    Tijekom Napoleonovih ratova Adamić razvija trgovinu
+                    unatoč blokadama i složenim političkim okolnostima.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="ratovi">
+        <h2>3. Trgovac u vrijeme Napoleonovih ratova</h2>
+
+        <p>
+            Početak 19. stoljeća bio je izuzetno težak za europske trgovce.
+            Ratovi između Francuske, Velike Britanije i drugih europskih
+            država utjecali su na pomorski promet i opskrbu gradova.
+        </p>
+
+        <p>
+            Adamić se uspio snaći u takvim okolnostima. Prema povijesnim
+            izvorima, unatoč britanskoj blokadi uspio je opskrbljivati
+            solju područja pod francuskom vlašću, uključujući Ilirske
+            provincije.
+        </p>
+
+        <p>
+            Posebno je važna bila njegova trgovina drvom. Adamić je
+            izvozio hrastovinu iz hrvatskih šuma prema Velikoj Britaniji.
+            Hrastovina je bila vrijedna sirovina za brodogradnju, pa je
+            takva trgovina imala veliko gospodarsko značenje.
+        </p>
+
+        <p>
+            Osim soli i drva, Adamić je trgovao različitim proizvodima,
+            uključujući staklo. Godine 1807. preuzeo je manufakturu stakla
+            u Mrzloj Vodici, a kvalitetni stakleni proizvodi izvoženi su
+            i na udaljena tržišta.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🧂 Sol</h3>
+                <p>
+                    Adamić je tijekom Napoleonova razdoblja sudjelovao u
+                    opskrbi solju unatoč britanskoj blokadi.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🌳 Hrastovina</h3>
+                <p>
+                    Hrvatsku hrastovinu izvozio je prema Britaniji,
+                    gdje je bila važna za brodogradnju.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🥃 Staklo i manufakture</h3>
+                <p>
+                    Njegovo poslovanje obuhvaćalo je i staklo te druge
+                    manufakturne proizvode.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section>
+        <h2>4. Zašto je Adamić bio poseban?</h2>
+
+        <p>
+            Adamićeva važnost nije bila samo u bogatstvu koje je stekao.
+            Njegova posebnost bila je sposobnost povezivanja trgovine,
+            prometa, proizvodnje i razvoja Rijeke.
+        </p>
+
+        <p>
+            Bio je jedan od glavnih inicijatora i financijera Lujzinske
+            ceste, koja je povezala Rijeku s Karlovcem i olakšala vezu
+            riječkog lučkog područja s unutrašnjošću.
+        </p>
+
+        <p>
+            Njegove poslovne aktivnosti kasnije su se proširile i na
+            proizvodnju papira, stakla, konopa i drugih proizvoda.
+            Zbog toga ga možemo promatrati kao jednog od ljudi koji su
+            pomogli oblikovati moderniji gospodarski razvoj Rijeke.
+        </p>
+    </section>
+
+
+    <section id="galerija">
+        <h2>5. Povijesna galerija</h2>
+
+        <div class="gallery">
+
+            <figure>
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Andrija%20Ljudevit%20Adamic.jpg"
+                    alt="Portret Andrije Ljudevita Adamića">
+                <figcaption>
+                    <strong>Andrija Ljudevit Adamić</strong><br>
+                    Portret. Izvor: Museum of Rijeka / Wikimedia Commons.
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Andrija_Adami%C4%87.jpg/629px-Andrija_Adami%C4%87.jpg"
+                    alt="Portret Andrije Adamića iz 1827.">
+                <figcaption>
+                    <strong>Adamićev portret, 1827.</strong><br>
+                    Izvor: Wikimedia Commons.
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Rijeka_Fiume_19th_century.jpg/800px-Rijeka_Fiume_19th_century.jpg"
+                    alt="Povijesni prikaz Rijeke">
+                <figcaption>
+                    <strong>Rijeka u povijesnom kontekstu</strong><br>
+                    Ilustracija grada i njegovog trgovačkog okruženja.
+                </figcaption>
+            </figure>
+
+        </div>
+
+        <p style="margin-top:20px;">
+            <strong>Napomena:</strong> Prije konačne predaje provjerite
+            licence i dostupnost svake slike te po potrebi zamijenite
+            treću sliku provjerenom fotografijom iz zbirki Muzeja grada
+            Rijeke ili Pomorskog i povijesnog muzeja Hrvatskog primorja.
+        </p>
+    </section>
+
+
+    <section id="video" class="video-box">
+        <h2>6. AI intervju s Andrijom Ljudevitom Adamićem</h2>
+
+        <p>
+            Za ovaj projekt izradili smo AI video u kojem povijesni portret
+            Andrije Ljudevita Adamića „progovara“ i u prvom licu objašnjava
+            kako je trgovao u vrijeme Napoleonovih ratova.
+        </p>
+
+        <div class="video-container">
+
+            <!--
+                OVDJE ZALIJEPITE YOUTUBE EMBED KOD
+                koji vam profesor pošalje nakon objave videa.
+
+                Primjer:
+                <iframe
+                    src="https://www.youtube.com/embed/VAŠ_VIDEO_ID"
+                    title="AI intervju s Andrijom Ljudevitom Adamićem"
+                    allowfullscreen>
+                </iframe>
+            -->
+
+            <div class="placeholder">
+                <h3>AI VIDEO</h3>
+                <p>
+                    Ovdje će biti ugrađen YouTube video
+                    s AI intervjuom Andrije Ljudevita Adamića.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="izvori">
+        <h2>7. Izvori i literatura</h2>
+
+        <div class="sources">
+
+            <ul>
+                <li>
+                    Hrvatska enciklopedija –
+                    <a href="https://www.enciklopedija.hr/clanak/adamic-ljudevit-andrija"
+                       target="_blank">
+                        Adamić, Ljudevit Andrija
+                    </a>
+                </li>
+
+                <li>
+                    Hrvatski biografski leksikon –
+                    <a href="https://hbl.lzmk.hr/Clanak/adamic-ljudevit-andrija"
+                       target="_blank">
+                        ADAMIĆ, Ljudevit Andrija
+                    </a>
+                </li>
+
+                <li>
+                    Muzej grada Rijeke –
+                    <a href="https://www.muzej-rijeka.hr/ervin-dubrovic-andrija-ljudevit-adamic-trgovac-u-doba-napoleonskih-ratova/"
+                       target="_blank">
+                        Andrija Ljudevit Adamić – trgovac u doba Napoleonskih ratova
+                    </a>
+                </li>
+
+                <li>
+                    Muzej grada Rijeke –
+                    <a href="https://www.muzej-rijeka.hr/portfolio/adamicevo-doba/"
+                       target="_blank">
+                        Adamićevo doba 1780.–1830.
+                    </a>
+                </li>
+
+                <li>
+                    Hrvatska tehnička enciklopedija –
+                    <a href="https://tehnika.lzmk.hr/adamic-andrija-ljudevit/"
+                       target="_blank">
+                        Adamić, Andrija Ljudevit
+                    </a>
+                </li>
+
+                <li>
+                    Wikimedia Commons –
+                    <a href="https://commons.wikimedia.org/wiki/File:Andrija_Ljudevit_Adamic.jpg"
+                       target="_blank">
+                        Portret Andrije Ljudevita Adamića
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <p>
+        <strong>Projektni dan – Adamićevo doba</strong>
+    </p>
+
+    <p>
+        Predmet: Informacijska tehnologija
+    </p>
+
+    <p>
+        Tim 1 – Mladi Adamić i uspon trgovačke kuće
+    </p>
+
+    <p>
+        © 2026 • Izrađeno za školski projekt
+    </p>
+</footer>
+
+</body>
+</html>
